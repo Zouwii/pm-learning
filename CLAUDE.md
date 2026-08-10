@@ -7,8 +7,8 @@
 ## 三层边界
 
 - `interview/`：只保存实际训练过的 QA 和思考训练；
-- `jz-product/`：公司已有 PRD、架构及待完善产品材料的唯一事实源；
-- `projects/`：项目事实、个人贡献、证据索引和 interview 讲述，不复制 PRD 正文。
+- `jz-product/`：公司已有 PRD、架构及 AI 辅助生成材料的参考区，事实仍需核验；
+- `projects/`：用户自己理解、撰写并验证的 PRD、项目复盘、个人贡献、证据索引和 interview 讲述，不复制 `jz-product/` 正文。
 
 日常学习只从 `00-开始学习.md` 进入。
 

@@ -10,7 +10,7 @@
 2. 继续问答时读取对应的 `interview/*-QA.md`；
 3. 需要回答方法时读取 `interview/结构化思考训练.md`；
 4. 需要项目讲述时读取对应的 `projects/*/README.md`；
-5. 需要核对 PRD 或架构事实时再读取 `jz-product/`。
+5. 需要查公司 PRD、架构或 AI 辅助稿时再读取 `jz-product/`，其中事实仍需核验。
 
 ## 问答规则
 
@@ -23,6 +23,6 @@
 ## 目录规则
 
 - `interview/`：只放实际 QA 与思考训练；
-- `jz-product/`：公司 PRD、架构和待完善产品材料的唯一事实源；
-- `projects/`：项目事实、个人贡献、证据索引和 interview 讲述；
-- 不在 `projects/` 复制 `jz-product/` 的 PRD 正文。
+- `jz-product/`：公司 PRD、架构和 AI 辅助生成材料的参考区；
+- `projects/`：用户自己理解、撰写并验证的 PRD、项目复盘、个人贡献、证据索引和 interview 讲述；
+- 不在 `projects/` 复制 `jz-product/` 正文，也不把 AI 生成结论直接当作用户判断。
