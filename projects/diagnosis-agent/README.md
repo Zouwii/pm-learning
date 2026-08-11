@@ -43,7 +43,15 @@
 
 ## 2 分钟结构
 
-按“人工排查痛点 → 为什么需要 Agent → Agent/Engine/Knowledge 分层 → 证据融合 → 降级与人工确认 → 当前状态”展开。
+按“定义四类场景 → 识别 Teambition Skill 缺口 → Claude + Skill + ttyd MVP → 暴露产品化问题 → LangGraph 一期 → 当前验证状态”展开。
+
+## 项目材料
+
+- [用户、场景与产品职责](01用户与问题分析.md)
+- [MVP 与 LangGraph 一期](02-MVP与LangGraph一期.md)
+- [简历包装与面试官审视](简历包装.md)
+
+讲述时明确团队边界：ZHR 负责场景、需求、交互、路线、安全边界与验收；算法同事负责 orchestrator、Skill 规范和领域能力；开发同事负责 ttyd 平台接入及后续工程实现。
 
 ## 下一步必须补齐
 
