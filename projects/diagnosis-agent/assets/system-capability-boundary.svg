@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1120" viewBox="0 0 1400 1120">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title { font: 700 32px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 16px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #64748b; }
+      .layer-label { font: 700 18px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #475569; }
+      .box-title { font: 700 22px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .box-subtitle { font: 400 15px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #475569; }
+      .item { font: 600 15px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #334155; }
+      .small { font: 400 14px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #64748b; }
+      .arrow-label { font: 600 14px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #475569; }
+      .legend { font: 500 14px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="1120" fill="#f8fafc"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Diagnosis-Agent 系统能力边界</text>
+  <text x="700" y="82" text-anchor="middle" class="subtitle">从用户入口到已有数据源：明确产品界面、新增编排能力与复用能力</text>
+
+  <!-- Layer 1: User -->
+  <text x="52" y="150" class="layer-label">用户层</text>
+  <rect x="170" y="112" width="1060" height="104" rx="18" fill="#ecfdf5" stroke="#34d399" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="238" cy="164" r="27" fill="#10b981"/>
+  <circle cx="238" cy="154" r="8" fill="#ffffff"/>
+  <path d="M222 179 C225 166,251 166,254 179" fill="#ffffff"/>
+  <text x="286" y="158" class="box-title">应用工程师</text>
+  <text x="286" y="186" class="box-subtitle">创建 Case · 查看诊断过程 · 复核结论 · 确认模块交接</text>
+  <rect x="1008" y="138" width="180" height="52" rx="12" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="1098" y="160" text-anchor="middle" class="item">最终判断权</text>
+  <text x="1098" y="181" text-anchor="middle" class="small">Human-in-the-Loop</text>
+
+  <!-- Connector 1 -->
+  <line x1="700" y1="216" x2="700" y2="258" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="718" y="244" class="arrow-label">发起诊断 / 复核结果</text>
+
+  <!-- Layer 2: Product -->
+  <text x="52" y="317" class="layer-label">产品平台层</text>
+  <rect x="170" y="266" width="1060" height="145" rx="18" fill="#eff6ff" stroke="#60a5fa" stroke-width="2" filter="url(#shadow)"/>
+  <text x="210" y="308" class="box-title">management-system</text>
+  <text x="210" y="334" class="box-subtitle">用户直接接触的产品入口与 Case 管理界面</text>
+
+  <g>
+    <rect x="210" y="354" width="210" height="38" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="315" y="378" text-anchor="middle" class="item">登录与权限</text>
+    <rect x="440" y="354" width="210" height="38" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="545" y="378" text-anchor="middle" class="item">创建与管理 Case</text>
+    <rect x="670" y="354" width="210" height="38" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="775" y="378" text-anchor="middle" class="item">诊断进度展示</text>
+    <rect x="900" y="354" width="290" height="38" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="1045" y="378" text-anchor="middle" class="item">报告复核与交接</text>
+  </g>
+
+  <!-- Connector 2 -->
+  <line x1="700" y1="411" x2="700" y2="456" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="718" y="440" class="arrow-label">提交 Case / 查询状态</text>
+
+  <!-- Layer 3: New capability -->
+  <text x="52" y="520" class="layer-label">Agent 编排层</text>
+  <rect x="170" y="464" width="1060" height="172" rx="18" fill="#fff7ed" stroke="#fb923c" stroke-width="3" filter="url(#shadow)"/>
+  <rect x="1000" y="482" width="190" height="32" rx="16" fill="#f97316"/>
+  <text x="1095" y="503" text-anchor="middle" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff">本项目新增核心能力</text>
+  <text x="210" y="510" class="box-title">diagnosis-orchestrator</text>
+  <text x="210" y="537" class="box-subtitle">维护 Case 上下文，按场景组织已有 Skills，并汇总可复核证据</text>
+
+  <g>
+    <rect x="210" y="562" width="174" height="50" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="297" y="592" text-anchor="middle" class="item">来源识别</text>
+    <rect x="399" y="562" width="174" height="50" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="486" y="592" text-anchor="middle" class="item">场景匹配</text>
+    <rect x="588" y="562" width="174" height="50" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="675" y="592" text-anchor="middle" class="item">流程编排</text>
+    <rect x="777" y="562" width="174" height="50" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="864" y="592" text-anchor="middle" class="item">材料补采</text>
+    <rect x="966" y="562" width="224" height="50" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="1078" y="592" text-anchor="middle" class="item">证据汇总与报告</text>
+  </g>
+
+  <!-- Return path -->
+  <path d="M1228 548 C1310 548,1310 338,1232 338" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+  <text x="1310" y="448" text-anchor="middle" transform="rotate(-90 1310 448)" class="arrow-label">返回进度、证据和诊断报告</text>
+
+  <!-- Connector 3 -->
+  <line x1="700" y1="636" x2="700" y2="680" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="718" y="665" class="arrow-label">按流程调用 / 接收结果</text>
+
+  <!-- Layer 4: Existing skills -->
+  <text x="52" y="742" class="layer-label">已有能力层</text>
+  <rect x="170" y="688" width="1060" height="188" rx="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="210" y="730" class="box-title">已有原子 Skills</text>
+  <text x="210" y="756" class="box-subtitle">提供确定性的材料获取与专项分析能力，由编排层统一调用</text>
+
+  <g>
+    <rect x="210" y="780" width="300" height="72" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="230" y="807" class="item">材料采集</text>
+    <text x="230" y="834" class="small">车辆连接 · TB读取 · 远程现场 · 日志读取</text>
+
+    <rect x="530" y="780" width="300" height="72" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="550" y="807" class="item">诊断分析</text>
+    <text x="550" y="834" class="small">日志分析 · 配置检查 · 设备诊断</text>
+
+    <rect x="850" y="780" width="340" height="72" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="870" y="807" class="item">外部证据查询</text>
+    <text x="870" y="834" class="small">钉钉文档 · GitLab代码 · 错误码知识</text>
+  </g>
+
+  <!-- Connector 4 -->
+  <line x1="700" y1="876" x2="700" y2="918" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="718" y="903" class="arrow-label">只读访问</text>
+
+  <!-- Data sources -->
+  <text x="52" y="978" class="layer-label">数据源层</text>
+  <rect x="170" y="926" width="1060" height="92" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+
+  <g>
+    <rect x="205" y="950" width="160" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="285" y="978" text-anchor="middle" class="item">车辆</text>
+    <rect x="385" y="950" width="160" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="465" y="978" text-anchor="middle" class="item">日志</text>
+    <rect x="565" y="950" width="180" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="655" y="978" text-anchor="middle" class="item">Teambition</text>
+    <rect x="765" y="950" width="210" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="870" y="978" text-anchor="middle" class="item">钉钉知识库</text>
+    <rect x="995" y="950" width="195" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="1092" y="978" text-anchor="middle" class="item">GitLab</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(170,1060)">
+    <rect x="0" y="-14" width="18" height="18" rx="4" fill="#eff6ff" stroke="#60a5fa"/>
+    <text x="28" y="0" class="legend">已有平台</text>
+    <rect x="132" y="-14" width="18" height="18" rx="4" fill="#fff7ed" stroke="#fb923c"/>
+    <text x="160" y="0" class="legend">本项目新增</text>
+    <rect x="295" y="-14" width="18" height="18" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="323" y="0" class="legend">已有 Skills</text>
+    <rect x="455" y="-14" width="18" height="18" rx="4" fill="#ecfdf5" stroke="#34d399"/>
+    <text x="483" y="0" class="legend">人工操作与确认</text>
+  </g>
+</svg>

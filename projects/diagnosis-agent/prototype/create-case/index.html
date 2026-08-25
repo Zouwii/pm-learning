@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Diagnosis-Agent 创建诊断 Case 的低保真交互原型，仅使用 Mock 数据。"
+    />
+    <title>创建诊断 Case｜Diagnosis-Agent 原型</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Diagnosis-Agent 首页">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" />
+              <path d="M8 9h8M8 13h5M8 17h3" />
+            </svg>
+          </span>
+          <span>
+            <strong>Diagnosis-Agent</strong>
+            <small>现场问题辅助诊断</small>
+          </span>
+        </a>
+
+        <nav class="topnav" aria-label="主导航">
+          <a class="active" href="#">创建 Case</a>
+          <a href="#" data-placeholder-link>我的 Case</a>
+        </nav>
+
+        <div class="prototype-badge" title="本页面不连接真实系统">
+          <span></span>
+          交互原型 · Mock 数据
+        </div>
+      </header>
+
+      <main>
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">NEW DIAGNOSIS CASE</p>
+            <h1>创建诊断 Case</h1>
+            <p class="heading-copy">
+              提交问题信息，系统将自动识别材料来源并匹配诊断流程。无需选择底层 Skill。
+            </p>
+          </div>
+          <div class="safety-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.8 3.1 7.8 7.5 9.5 4.4-1.7 7.5-4.7 7.5-9.5V6L12 3Z" />
+              <path d="m9.2 12.1 1.8 1.8 4-4" />
+            </svg>
+            <span><strong>默认只读</strong>，不会自动执行重启、配置修改或软件升级。</span>
+          </div>
+        </section>
+
+        <section class="workspace" aria-live="polite">
+          <ol class="stepper" aria-label="创建 Case 步骤">
+            <li class="step active" data-step="1">
+              <span>1</span>
+              <div><strong>提交信息</strong><small>描述问题与材料位置</small></div>
+            </li>
+            <li class="step" data-step="2">
+              <span>2</span>
+              <div><strong>确认识别</strong><small>检查系统提取结果</small></div>
+            </li>
+            <li class="step" data-step="3">
+              <span>3</span>
+              <div><strong>开始诊断</strong><small>创建 Case 并采集材料</small></div>
+            </li>
+          </ol>
+
+          <div class="panel" id="inputPanel">
+            <div class="panel-header">
+              <div>
+                <h2>问题信息</h2>
+                <p>请将材料标识和问题现象放在同一个输入框中，系统会自动拆分。</p>
+              </div>
+              <button class="text-button" id="fillExampleButton" type="button">
+                填入成功示例
+              </button>
+            </div>
+
+            <form id="caseForm" novalidate>
+              <div class="field-group" id="problemFieldGroup">
+                <label for="problemInput">
+                  问题信息 <span aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  id="problemInput"
+                  rows="7"
+                  maxlength="1000"
+                  placeholder="请粘贴车辆 IP、Teambition 任务链接、远程连接信息或日志目录，并描述问题现象。&#10;&#10;例如：172.19.3.79 小车在执行任务时定位丢失，任务中断。"
+                  aria-describedby="problemHelp problemError"
+                ></textarea>
+                <div class="field-meta">
+                  <span id="problemHelp">支持识别 IP、TB 链接、远程现场信息和日志目录</span>
+                  <span><strong id="characterCount">0</strong>/1000</span>
+                </div>
+                <p class="field-error" id="problemError" role="alert"></p>
+              </div>
+
+              <div class="field-group compact" id="timeFieldGroup">
+                <label for="occurredAt">
+                  发生时间 <span aria-hidden="true">*</span>
+                </label>
+                <input id="occurredAt" type="datetime-local" aria-describedby="timeHelp timeError" />
+                <p class="field-help" id="timeHelp">用于限定日志采集和分析的时间窗口。</p>
+                <p class="field-error" id="timeError" role="alert"></p>
+              </div>
+
+              <div class="source-guide" aria-label="支持的材料来源">
+                <p>可识别的材料来源</p>
+                <div class="source-chips">
+                  <span><i class="dot blue"></i>内网车辆 IP</span>
+                  <span><i class="dot purple"></i>Teambition 任务</span>
+                  <span><i class="dot orange"></i>客户远程现场</span>
+                  <span><i class="dot gray"></i>已有日志目录</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="secondary-button" type="button" id="resetButton">清空</button>
+                <button class="primary-button" type="submit" id="recognizeButton">
+                  <span>识别并创建 Case</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel hidden" id="reviewPanel">
+            <div class="panel-header review-header">
+              <div>
+                <div class="success-kicker">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 11.1V12a8 8 0 1 1-4.7-7.3" />
+                    <path d="m9 11 3 3L21 5" />
+                  </svg>
+                  识别完成
+                </div>
+                <h2>请确认 Case 信息</h2>
+                <p>系统开始采集前，请确认自动识别的信息是否准确。</p>
+              </div>
+              <span class="confidence-badge">Mock 识别结果</span>
+            </div>
+
+            <div class="review-grid" id="reviewReadonly">
+              <div class="review-row">
+                <span>材料来源</span>
+                <strong><i class="source-icon" id="sourceIcon"></i><b id="reviewSourceType"></b></strong>
+              </div>
+              <div class="review-row">
+                <span>来源地址</span>
+                <strong class="monospace" id="reviewSourceAddress"></strong>
+              </div>
+              <div class="review-row full">
+                <span>问题描述</span>
+                <strong id="reviewProblem"></strong>
+              </div>
+              <div class="review-row">
+                <span>发生时间</span>
+                <strong id="reviewOccurredAt"></strong>
+              </div>
+              <div class="review-row">
+                <span>采集方式</span>
+                <strong>只读 · 基础材料优先</strong>
+              </div>
+            </div>
+
+            <form class="edit-form hidden" id="reviewEditForm">
+              <div class="field-group compact">
+                <label for="editSourceType">材料来源</label>
+                <select id="editSourceType">
+                  <option value="内网车辆">内网车辆</option>
+                  <option value="Teambition 任务">Teambition 任务</option>
+                  <option value="客户远程现场">客户远程现场</option>
+                  <option value="已有日志">已有日志</option>
+                </select>
+              </div>
+              <div class="field-group compact">
+                <label for="editSourceAddress">来源地址</label>
+                <input id="editSourceAddress" type="text" />
+              </div>
+              <div class="field-group full">
+                <label for="editProblem">问题描述</label>
+                <textarea id="editProblem" rows="4"></textarea>
+              </div>
+              <div class="field-group compact">
+                <label for="editOccurredAt">发生时间</label>
+                <input id="editOccurredAt" type="datetime-local" />
+              </div>
+            </form>
+
+            <div class="notice-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 11v5M12 8h.01" />
+              </svg>
+              <span>确认后，系统将创建唯一 Case，并只读获取发生时间附近的基础诊断材料。</span>
+            </div>
+
+            <div class="form-actions split-actions">
+              <button class="secondary-button" type="button" id="backButton">返回修改</button>
+              <div>
+                <button class="secondary-button" type="button" id="editButton">修改识别结果</button>
+                <button class="primary-button" type="button" id="confirmButton">确认并开始诊断</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel hidden" id="errorPanel">
+            <div class="error-state">
+              <span class="error-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v6M12 17h.01" />
+                </svg>
+              </span>
+              <p class="eyebrow error-eyebrow">MATERIAL SOURCE REQUIRED</p>
+              <h2>无法识别材料来源</h2>
+              <p>问题现象已经保留。请至少补充以下一项，系统才能获取诊断材料：</p>
+              <div class="required-source-list">
+                <span>车辆 IP</span>
+                <span>TB 任务链接</span>
+                <span>远程连接信息</span>
+                <span>日志目录</span>
+              </div>
+              <div class="error-example">
+                <strong>例如</strong>
+                <code>172.19.3.79 小车在执行任务时定位丢失</code>
+              </div>
+              <button class="primary-button" type="button" id="returnToInputButton">返回补充信息</button>
+            </div>
+          </div>
+
+          <div class="panel hidden" id="createdPanel">
+            <div class="created-state">
+              <span class="created-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 11.1V12a8 8 0 1 1-4.7-7.3" />
+                  <path d="m9 11 3 3L21 5" />
+                </svg>
+              </span>
+              <p class="eyebrow">MOCK CASE CREATED</p>
+              <h2>Case 已创建</h2>
+              <p>这是原型演示结果，不会连接真实车辆或启动真实诊断。</p>
+              <div class="case-id-card">
+                <span>Case 编号</span>
+                <strong id="createdCaseId">CASE-MOCK-001</strong>
+              </div>
+              <div class="created-actions">
+                <button class="secondary-button" type="button" id="createAnotherButton">再创建一个</button>
+                <a class="primary-button next-page-link" href="../diagnosis-progress/">查看诊断过程</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="toast hidden" id="toast" role="status"></div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
