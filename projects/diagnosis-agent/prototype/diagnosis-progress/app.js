@@ -4,7 +4,6 @@ const elements = {
   stepCount: document.querySelector("#stepCount"),
   stepsList: document.querySelector("#stepsList"),
   resultTitle: document.querySelector("#resultTitle"),
-  resultDescription: document.querySelector("#resultDescription"),
   resultCount: document.querySelector("#resultCount"),
   resultRows: document.querySelector("#resultRows"),
   timeline: document.querySelector("#timeline"),
@@ -60,7 +59,7 @@ const states = {
     activeStep: 5,
     stepCount: "5 / 5",
     title: "排查结果",
-    description: "第一行展示发现的问题，后续行展示已经检查和排除的方向。",
+    description: "",
     count: "已完成 4 项检查",
     rows: [
       {
@@ -109,7 +108,7 @@ const states = {
     activeStep: 4,
     stepCount: "4 / 5",
     title: "排查进度",
-    description: "表格随检查过程逐项更新，当前发现尚未经过最终复核。",
+    description: "",
     count: "已完成 2 项，执行中 1 项",
     rows: [
       {
@@ -143,14 +142,14 @@ const states = {
     ],
     actions: `
       <button class="secondary-button" type="button" data-action="manual">停止并转人工</button>
-      <button class="primary-button" type="button" data-action="finish">模拟完成诊断</button>`,
+      <button class="primary-button" type="button" data-action="finish">完成诊断</button>`,
   },
   missing: {
     status: ["待补材料", "waiting"],
     activeStep: 4,
     stepCount: "4 / 5",
     title: "排查进度",
-    description: "已有检查结果继续保留；缺少关键证据时不会强行输出模块结论。",
+    description: "",
     count: "已完成 2 项，待补 1 项",
     rows: [
       {
@@ -191,7 +190,7 @@ const states = {
     activeStep: 2,
     stepCount: "2 / 5",
     title: "排查结果",
-    description: "材料采集失败，因此没有生成未经证据支持的诊断结论。",
+    description: "",
     count: "执行失败 1 项",
     rows: [
       {
@@ -267,7 +266,6 @@ function renderState(name) {
   setStatus(state.status);
   elements.stepCount.textContent = state.stepCount;
   elements.resultTitle.textContent = state.title;
-  elements.resultDescription.textContent = state.description;
   elements.resultCount.textContent = state.count;
   elements.resultActions.innerHTML = state.actions;
   renderSteps(state.activeStep);
@@ -309,15 +307,15 @@ function bindDynamicActions() {
       if (action === "finish") {
         elements.stateSelect.value = "completed";
         renderState("completed");
-        showToast("已模拟完成全部排查项。 ");
+        showToast("已完成全部排查项。 ");
       }
       if (action === "retry") {
         elements.stateSelect.value = "running";
         renderState("running");
-        showToast("已模拟重新连接并恢复诊断。 ");
+        showToast("已重新连接并恢复诊断。 ");
       }
-      if (action === "supplement") showToast("已模拟进入材料补充流程。 ");
-      if (action === "manual") showToast("已模拟转入人工排查，当前表格和执行记录将保留。 ");
+      if (action === "supplement") showToast("已进入材料补充流程。 ");
+      if (action === "manual") showToast("已转入人工排查，当前表格和执行记录将保留。 ");
       if (action === "handoff") showToast("已认可结论，下一步将生成标准化交接材料。 ");
     });
   });

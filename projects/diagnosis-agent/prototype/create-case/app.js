@@ -296,7 +296,7 @@ elements.editButton.addEventListener("click", () => {
 elements.confirmButton.addEventListener("click", () => {
   if (!state.recognized || state.editing) return;
   const suffix = String(Date.now()).slice(-6);
-  elements.createdCaseId.textContent = `CASE-MOCK-${suffix}`;
+  elements.createdCaseId.textContent = `CASE-${suffix}`;
   showPanel("createdPanel");
   setActiveStep(3);
 });

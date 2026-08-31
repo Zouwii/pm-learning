@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Diagnosis-Agent 简化诊断过程页交互原型。" />
     <title>诊断过程｜Diagnosis-Agent 原型</title>
-    <link rel="stylesheet" href="../create-case/styles.css" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../create-case/styles.css?v=20260831-2" />
+    <link rel="stylesheet" href="./styles.css?v=20260831-2" />
   </head>
   <body>
     <div class="app-shell">
@@ -26,7 +26,6 @@
           <a class="active" href="#">我的 Case</a>
         </nav>
 
-        <div class="prototype-badge"><span></span>交互原型 · Mock 数据</div>
       </header>
 
       <main class="progress-main">
@@ -38,15 +37,15 @@
         <section class="case-summary">
           <div class="case-title-area">
             <div class="case-meta">
-              <span>CASE-MOCK-482731</span>
+              <span>CASE-482731</span>
               <span class="status-pill completed" id="caseStatus">诊断完成</span>
             </div>
             <h1>小车执行搬运任务时定位丢失，任务中断</h1>
-            <p>内网车辆 172.19.3.79 · 发生时间 2026-08-25 14:30 · 全部内容均为 Mock 演示</p>
+            <p>内网车辆 172.19.3.79 · 发生时间 2026-08-25 14:30</p>
           </div>
 
           <label class="prototype-state">
-            <span>原型演示状态</span>
+            <span>诊断状态</span>
             <select id="stateSelect">
               <option value="completed">诊断完成</option>
               <option value="running">诊断执行中</option>
@@ -63,13 +62,6 @@
               <span id="stepCount">5 / 5</span>
             </div>
             <ol class="steps-list" id="stepsList"></ol>
-            <div class="readonly-note">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 4.5 6v5.5c0 4.8 3.1 7.8 7.5 9.5 4.4-1.7 7.5-4.7 7.5-9.5V6L12 3Z" />
-                <path d="m9.2 12.1 1.8 1.8 4-4" />
-              </svg>
-              默认只读。高风险操作必须由人工确认。
-            </div>
           </aside>
 
           <section class="result-card" aria-live="polite">
@@ -77,7 +69,6 @@
               <div>
                 <p>DIAGNOSIS RESULT</p>
                 <h2 id="resultTitle">排查结果</h2>
-                <span id="resultDescription">第一行展示发现的问题，后续行展示已经检查和排除的方向。</span>
               </div>
               <span class="result-count" id="resultCount">已完成 4 项检查</span>
             </div>
@@ -99,7 +90,7 @@
 
             <section class="execution-section">
               <div class="execution-heading">
-                <div><h3>执行记录</h3><p>只展示执行动作和结果，不展示模型内部思维过程。</p></div>
+                <div><h3>执行记录</h3></div>
                 <button class="text-button" id="toggleTimelineButton" type="button">收起</button>
               </div>
               <div class="timeline" id="timeline"></div>
@@ -121,7 +112,6 @@
           <div><dt>时间</dt><dd id="drawerTime"></dd></div>
         </dl>
         <pre id="drawerContent"></pre>
-        <div class="drawer-tip">此处为 Mock 证据，仅用于验证“结论可以追溯至原始材料”的产品交互。</div>
       </aside>
 
       <div class="toast hidden" id="toast" role="status"></div>

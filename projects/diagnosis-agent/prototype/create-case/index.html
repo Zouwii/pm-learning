@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Diagnosis-Agent 创建诊断 Case 的低保真交互原型，仅使用 Mock 数据。"
+      content="Diagnosis-Agent 创建诊断 Case 页面。"
     />
     <title>创建诊断 Case｜Diagnosis-Agent 原型</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260831-2" />
   </head>
   <body>
     <div class="app-shell">
@@ -31,10 +31,6 @@
           <a href="#" data-placeholder-link>我的 Case</a>
         </nav>
 
-        <div class="prototype-badge" title="本页面不连接真实系统">
-          <span></span>
-          交互原型 · Mock 数据
-        </div>
       </header>
 
       <main>
@@ -145,7 +141,7 @@
                 <h2>请确认 Case 信息</h2>
                 <p>系统开始采集前，请确认自动识别的信息是否准确。</p>
               </div>
-              <span class="confidence-badge">Mock 识别结果</span>
+              <span class="confidence-badge">识别结果</span>
             </div>
 
             <div class="review-grid" id="reviewReadonly">
@@ -245,12 +241,12 @@
                   <path d="m9 11 3 3L21 5" />
                 </svg>
               </span>
-              <p class="eyebrow">MOCK CASE CREATED</p>
+              <p class="eyebrow">CASE CREATED</p>
               <h2>Case 已创建</h2>
-              <p>这是原型演示结果，不会连接真实车辆或启动真实诊断。</p>
+              <p>Case 已创建，可以进入诊断过程。</p>
               <div class="case-id-card">
                 <span>Case 编号</span>
-                <strong id="createdCaseId">CASE-MOCK-001</strong>
+                <strong id="createdCaseId">CASE-001</strong>
               </div>
               <div class="created-actions">
                 <button class="secondary-button" type="button" id="createAnotherButton">再创建一个</button>
