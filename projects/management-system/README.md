@@ -135,8 +135,9 @@ V2 实验必须在冻结的同一语料和独立真实问题集上比较 baselin
 
 ## 项目材料
 
-- [需求来源](./01-需求来源.md)
-- [RAG V2 STAR 项目描述](./03-STAR项目讲述.md)
+- [MVP 设计](./02-MVP设计.md)
+- [STAR 项目讲述](./03-STAR2项目讲述.md)
+- [工程知识问答助手 PRD](./04-工程知识问答助手-PRD.md)
 - 源设计：`management-system/docs/ai/rag/RAG-v2-研发项目知识助手设计.md`
 - 数据治理记录：`management-system/docs/ai/rag/RAG-v2-文档清洗与层级切分工作记录.md`
 - 源仓库：`/home/zhr/zhr_ws/src/ai/management-system`
