@@ -184,6 +184,7 @@ Nav-Manager 解析并在下一次任务初始化时匹配补偿
 - [跨仓开发证据](./01-个人工作证据.md)
 - [产品化包装与 AI 路线](./04-产品化包装与AI路线.md)
 - [AGV 云端运维平台关联](./05-云端运维平台关联.md)
+- [Nav-Manager 任务决策学习与交接计划](./06-Nav-Manager任务决策学习与交接计划.md)
 - 源仓库：`/home/zhr/zhr_ws/src/mainbody/nav-application`
 - 源仓库：`/home/zhr/zhr_ws/src/mainbody/nav-manager`
 - 产品技术交底：`nav-application/plugin_run_learning/技术交底书-自学习-第二版.md`
